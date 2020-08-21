@@ -21,8 +21,9 @@ describe('Pizza form tester', () => {
 
             cy.get('input[value="original red"]').click()
             
-            cy.get('[name="size"]')
+            cy.get('[name="size"]').select('large')
             //cy.select('select[value="large"]')
+            cy.get('#submitBtn').click()
         })
     })
 
