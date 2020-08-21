@@ -35,6 +35,7 @@ const initialFormErrors = {
 }
 
 
+
 const initialOrders = [];
 const initialDisabled = true;
 
@@ -87,7 +88,14 @@ const App = () => {
       specialInstructions: formValues.specialInstructions.trim(),
       name: formValues.name.trim(),
     }
+    postNewPizza(newPizza)
+  }
 
+  const getOrder = () => {
+    console.log(order)
+  }
+
+  const postNewPizza = newPizza => {
     setOrder([...order, newPizza])
     setFormValues(initialFormValues)
   }
