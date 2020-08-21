@@ -57,18 +57,9 @@ export default function PizzaForm(props) {
                         checked={values.sauce === 'garlic ranch'}
                         onChange={onInputChange} 
                     />
-                <label>Garlic Ranch
-                    <input
-                        type='radio'
-                        name='sauce'
-                        value='garlic ranch'
-                        checked={values.sauce === 'garlic ranch'}
-                        onChange={onInputChange} 
-                    />
                 </label>
 
                 { /* ///// CHECKBOXES ///// */}
-                </label>
                     <div className='form-group checkboxes'>
                     <h4>Add Toppings</h4>
                     <label>Pepperoni
@@ -120,7 +111,7 @@ export default function PizzaForm(props) {
                     <input 
                         value={values.specialInstructions}
                         onChange={onInputChange}
-                        name='special instructions'
+                        name='specialInstructions'
                         type='text'
                     />
                 </label>

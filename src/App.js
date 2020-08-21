@@ -8,6 +8,7 @@ import { Link, Route, Switch } from 'react-router-dom'
 
 // Pages
 import PizzaForm from './PizzaForm'
+import Home from './Home'
 
 const initialFormValues = {
   ///// DROPDOWN /////
@@ -42,7 +43,6 @@ const App = () => {
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled)
-
 
   ///// FORM ACTIONS /////
   const inputChange = (name, value) => {
@@ -92,20 +92,20 @@ const App = () => {
   }
 
   ///// SIDE EFFECTS ///// 
+  useEffect(() => {
+    formSchema.isValid(formValues)
+    .then(valid => {
+      setDisabled(!valid)
+    })
+  }, [formValues])
 
   return (
     <div className='app'>
-      <header>
-       <h1>Lambda Eats</h1>
+      <Route exact path='/'>
+        <Home />
+      </Route>
 
-        <nav>
-          <button>Home</button>
-          <button>Help</button>
-        </nav>
-
-       </header>
-
-      <PizzaForm values={formValues} errors={formErrors} disabled={disabled} inputChange={inputChange} checkBoxChange={checkBoxChange} submit={submit} />
+    <PizzaForm values={formValues} errors={formErrors} disabled={disabled} inputChange={inputChange} checkBoxChange={checkBoxChange} submit={submit} />
     </div>
   );
 };
