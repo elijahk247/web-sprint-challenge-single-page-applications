@@ -34,9 +34,6 @@ const initialFormErrors = {
   name: '', 
 }
 
-// function fetchStock() {
-//   return Promise.resolve({ successL true, PizzaForm })
-// }
 
 const initialOrders = [];
 const initialDisabled = true;
@@ -47,12 +44,6 @@ const App = () => {
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled)
-
-  // const [stock, setStock] = useState([])
-
-  // useEffect(() => {
-  //   fetchStocl.then(res => setStock(res))
-  // }, []))
 
   ///// FORM ACTIONS /////
   const inputChange = (name, value) => {
@@ -118,15 +109,12 @@ const App = () => {
       <Route exact path='/'>
         <Home />
       </Route>
-    <Switch>
-      <Route path='/Pizza'>
-        <PizzaForm values={formValues} errors={formErrors} disabled={disabled} inputChange={inputChange} checkBoxChange={checkBoxChange} submit={submit} />
-      </Route>
-      { /*}
-      <PizzaForm values={formValues} errors={formErrors} disabled={disabled} inputChange={inputChange} checkBoxChange={checkBoxChange} submit={submit} /> */ }
-    </Switch>
+      <Switch>
+        <Route path='/Pizza'>
+          <PizzaForm values={formValues} errors={formErrors} disabled={disabled} inputChange={inputChange} checkBoxChange={checkBoxChange} submit={submit} />
+        </Route>
+      </Switch>
     </div>
-
   );
 };
 export default App;
